@@ -46,7 +46,7 @@ cp .env.example .env.local
 # set ZENFUND_PASSCODE in .env.local
 npm run dev
 ```
-Without a `POSTGRES_URL`, the API routes will error — either attach a
+Without a `POSTGRES_URL`, the API routes will error either attach a
 Vercel Postgres DB and pull the env vars (see below), or point
 `POSTGRES_URL` at any Postgres instance for local testing.
 
@@ -60,7 +60,7 @@ Vercel Postgres DB and pull the env vars (see below), or point
 5. Deploy. First request creates the two tables automatically
    (`lib/db.js` runs `CREATE TABLE IF NOT EXISTS` on first query).
 6. Open the deployed URL, enter the passcode, and it behaves exactly like
-   the original file — except your data now lives in Postgres and is the
+   the original file except your data now lives in Postgres and is the
    same on every device you log into.
 
 ## Known prototype-level shortcuts (carried over on purpose)
@@ -70,4 +70,4 @@ Vercel Postgres DB and pull the env vars (see below), or point
 - The passcode cookie is a single shared secret, not per-user accounts 
   matches what you asked for (no login system, single-user).
 - OCR (Tesseract) and Excel import/export still run entirely in the
-  browser, same as the original — no backend involved there.
+  browser, same as the original no backend involved there.
