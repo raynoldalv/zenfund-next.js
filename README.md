@@ -64,10 +64,10 @@ Vercel Postgres DB and pull the env vars (see below), or point
    same on every device you log into.
 
 ## Known prototype-level shortcuts (carried over on purpose)
-- Receipt photos are stored as base64 data URLs in the `foto` column —
+- Receipt photos are stored as base64 data URLs in the `foto` column 
   fine for a personal app, but will bloat the DB fast with many receipts.
   If that becomes a problem, swap to Vercel Blob storage for photos.
-- The passcode cookie is a single shared secret, not per-user accounts —
+- The passcode cookie is a single shared secret, not per-user accounts 
   matches what you asked for (no login system, single-user).
 - OCR (Tesseract) and Excel import/export still run entirely in the
   browser, same as the original — no backend involved there.
