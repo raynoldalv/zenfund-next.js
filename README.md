@@ -1,25 +1,25 @@
 # ZenFund (Next.js rebuild)
 
-Same app as the original single-file prototype — same HTML/CSS, same
-Bootstrap modals and transitions, same OCR/Excel/chart/calendar features —
+Same app as the original single-file prototype same HTML/CSS, same
+Bootstrap modals and transitions, same OCR/Excel/chart/calendar features
 split into a proper Next.js project, with transactions and the budget
 config stored in Postgres instead of localStorage, and a passcode gate
 in front of it.
 
 ## How it's structured
-- `app/layout.js` — loads Bootstrap CSS / Font Awesome, wraps every page
-- `app/globals.css` — the original theme CSS, unchanged, plus calendar
+- `app/layout.js` loads Bootstrap CSS / Font Awesome, wraps every page
+- `app/globals.css` the original theme CSS, unchanged, plus calendar
   styling the original never actually defined (see note below)
-- `app/page.js` — renders the app markup, then loads Bootstrap JS,
+- `app/page.js` renders the app markup, then loads Bootstrap JS,
   Chart.js, SheetJS, and Tesseract.js in order, then `app-logic.js`
-- `lib/markup.js` — the body HTML, copied as-is from your prototype
-- `public/app-logic.js` — the original script, with `localStorage` calls
+- `lib/markup.js` the body HTML, copied as-is from your prototype
+- `public/app-logic.js` the original script, with `localStorage` calls
   swapped for `fetch()` calls to the API routes below
-- `app/api/transactions/route.js` + `[id]/route.js` — list/create/delete
+- `app/api/transactions/route.js` + `[id]/route.js` list/create/delete
   transactions
-- `app/api/budget/route.js` — read/update the budget cap
-- `lib/db.js` — Postgres queries (creates its own tables on first use)
-- `middleware.js` + `app/login/page.js` + `app/api/auth/route.js` — the
+- `app/api/budget/route.js` read/update the budget cap
+- `lib/db.js` Postgres queries (creates its own tables on first use)
+- `middleware.js` + `app/login/page.js` + `app/api/auth/route.js` the
   passcode gate
 
 ## What was actually wrong in the earlier stacked attempt
