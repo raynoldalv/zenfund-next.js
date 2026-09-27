@@ -36,7 +36,7 @@ in front of it.
 - "Rencana Simulasi Target" not working: the original file's calendar
   (`.calendar-wrapper`, `.cal-grid`, `.cal-day`, `.ai-bubble`, ...) was
   referenced by the script but **never had CSS rules in the original
-  file** — so it was rendering unstyled at best. I added real styles for
+  file** so it was rendering unstyled at best. I added real styles for
   it in `globals.css`.
 
 ## Local setup
