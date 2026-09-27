@@ -1,0 +1,101 @@
+/* --- CSS VARIABLES --- */
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0a58ca;
+    --bg-soft: #e7f1ff;
+    --income-color: #198754;
+    --expense-color: #dc3545;
+}
+
+body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background 0.3s; padding-bottom: 80px; margin: 0; }
+.text-primary { color: var(--primary) !important; }
+
+/* Kartu Saldo */
+.card-saldo {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white; border-radius: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: none; transition: background 0.5s ease; position: relative; overflow: hidden;
+}
+
+/* Header Elements */
+.header-select, .header-btn-icon {
+    background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white;
+    border-radius: 8px; padding: 4px 8px; font-size: 0.8rem; cursor: pointer; text-decoration: none; display: inline-block;
+}
+.header-select option { color: #333; }
+
+/* Budget Bar */
+.budget-bar-bg { background: rgba(255,255,255,0.2); height: 6px; border-radius: 3px; margin-top: 10px; width: 100%; }
+.budget-bar-fill { background: white; height: 100%; border-radius: 3px; width: 0%; transition: width 0.5s; }
+
+/* List Transaksi */
+.transaksi-item {
+    background: white; border-radius: 12px; padding: 12px 15px; margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02); cursor: pointer; transition: transform 0.1s;
+}
+.transaksi-item:active { transform: scale(0.98); background-color: #f0f0f0; }
+.border-expense { border-left: 5px solid var(--expense-color); }
+.border-income { border-left: 5px solid var(--income-color); }
+
+/* FAB */
+.fab-container { position: fixed; bottom: 100px; right: 25px; z-index: 1050; }
+.btn-fab {
+    width: 60px; height: 60px; border-radius: 50%; background: var(--primary); color: white; border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 24px; display: flex; align-items: center; justify-content: center;
+}
+
+/* Footer */
+.bottom-nav {
+    position: fixed; bottom: 0; width: 100%; background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); padding: 10px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 1000; border-radius: 20px 20px 0 0;
+}
+.nav-btn { color: #6c757d; background: none; border: none; display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; min-width: 60px; }
+.nav-btn i { font-size: 1.4rem; margin-bottom: 4px; }
+
+/* Detail Image */
+#detail-img { width: 100%; border-radius: 10px; margin-top: 10px; border: 1px solid #ddd; }
+#camera-preview { width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; display: none; margin-bottom: 10px; }
+
+/* Helpers */
+.btn-input-besar { width: 100%; padding: 15px; font-size: 1.2rem; border-radius: 12px; font-weight: bold; }
+
+/* --- HALAMAN ABOUT (OVERLAY) --- */
+#about-page {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: white; z-index: 2000; overflow-y: auto;
+    display: none; animation: fadeIn 0.3s;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white; padding: 60px 20px 40px 20px; border-radius: 0 0 30px 30px; margin-bottom: 30px;
+}
+.feature-card { background: white; border: 1px solid #eee; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+.feature-icon { width: 50px; height: 50px; background: var(--bg-soft); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 15px; }
+
+/* Guide Steps Style */
+.step-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+.step-number { background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-top: 2px; }
+
+.faq-item { border: none; margin-bottom: 10px; border-radius: 10px; overflow: hidden; background: #f8f9fa; }
+.accordion-button:not(.collapsed) { background-color: var(--bg-soft); color: var(--primary); box-shadow: none; }
+.accordion-button:focus { box-shadow: none; }
+
+/* Chart Legend Item */
+.legend-item { font-size: 0.85rem; padding: 8px 0; border-bottom: 1px dashed #eee; }
+.legend-item:last-child { border-bottom: none; }
+
+/* --- RENCANA / KALENDER PREDIKTIF ---
+   These were referenced by the original inline script (calendar-wrapper,
+   cal-header, cal-grid, cal-day, target-date, ai-bubble) but never had CSS
+   rules in the original file, which is the real reason "Rencana Simulasi
+   Target" looked broken/unstyled. Adding proper styling here. */
+.calendar-wrapper { background: #f8f9fa; border-radius: 16px; padding: 16px; margin-top: 20px; }
+.cal-header { text-align: center; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; color: var(--primary); margin-bottom: 12px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-day-name { text-align: center; font-size: 0.7rem; color: #6c757d; font-weight: 700; padding-bottom: 4px; }
+.cal-day { text-align: center; font-size: 0.8rem; padding: 8px 0; border-radius: 8px; color: #333; }
+.cal-day.empty { visibility: hidden; }
+.cal-day.target-date { background: var(--primary); color: white; font-weight: 700; }
+.ai-bubble { background: var(--bg-soft); border-radius: 14px; padding: 14px 16px; margin-top: 16px; font-size: 0.85rem; color: #333; line-height: 1.5; }
